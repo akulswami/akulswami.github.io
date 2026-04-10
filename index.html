@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akul Mallayya Swami — Embedded Systems Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f4f0;
+      --surface: #ffffff;
+      --text: #1a1a18;
+      --muted: #6b6b68;
+      --accent: #1a4a8a;
+      --accent-light: #dde8f7;
+      --teal: #0f6e56;
+      --teal-light: #e1f5ee;
+      --border: rgba(0,0,0,0.09);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Header ── */
+    header {
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.6s ease both;
+    }
+    .header-inner { display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
+    .avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 22px; color: var(--accent);
+      flex-shrink: 0; margin-top: 4px;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+    .role {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 6px 0 12px;
+      letter-spacing: 0.01em;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11.5px;
+      font-weight: 400;
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+    .tag.blue { background: var(--accent-light); color: var(--accent); border-color: transparent; }
+    .tag.teal { background: var(--teal-light); color: var(--teal); border-color: transparent; }
+
+    .orcid-line {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 14px; font-size: 13px; color: var(--muted);
+    }
+    .orcid-badge {
+      background: #a6ce39; color: #fff;
+      font-size: 10px; font-weight: 500;
+      padding: 2px 7px; border-radius: 3px;
+      letter-spacing: 0.04em;
+    }
+    .orcid-line a { color: var(--accent); text-decoration: none; }
+    .orcid-line a:hover { text-decoration: underline; }
+
+    /* ── Sections ── */
+    main { padding: 2.5rem 0; }
+    section {
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.5s ease both;
+    }
+    section:nth-child(1) { animation-delay: 0.05s; }
+    section:nth-child(2) { animation-delay: 0.1s; }
+    section:nth-child(3) { animation-delay: 0.15s; }
+    section:nth-child(4) { animation-delay: 0.2s; }
+    section:nth-child(5) { animation-delay: 0.25s; }
+
+    .section-label {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Bio ── */
+    .bio { font-size: 15px; color: var(--text); line-height: 1.8; font-weight: 300; }
+
+    /* ── Education cards ── */
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+    }
+    .edu-degree { font-size: 13.5px; font-weight: 500; color: var(--text); }
+    .edu-field { font-family: var(--serif); font-size: 16px; color: var(--text); margin: 2px 0 6px; }
+    .edu-meta { font-size: 12.5px; color: var(--muted); }
+
+    /* ── Experience ── */
+    .exp-list {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .exp-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-company { font-size: 14px; font-weight: 500; color: var(--text); }
+    .exp-role { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .exp-badge {
+      font-size: 11px; font-weight: 500; white-space: nowrap;
+      padding: 3px 9px; border-radius: 100px;
+      background: var(--teal-light); color: var(--teal);
+      margin-top: 2px;
+    }
+
+    /* ── Research interests ── */
+    .interests { display: flex; flex-direction: column; gap: 10px; }
+    .interest {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px; color: var(--text); line-height: 1.55;
+    }
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0; margin-top: 6px;
+    }
+
+    /* ── Certifications ── */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+    .cert {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    /* ── Animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 560px) {
+      .container { padding: 0 1.25rem; }
+      header { padding: 2rem 0 1.75rem; }
+      .header-inner { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="header-inner">
+      <div class="avatar">AS</div>
+      <div>
+        <h1>Akul Mallayya Swami</h1>
+        <p class="role">Safety-Critical Embedded Systems Engineer &nbsp;·&nbsp; Medical Devices</p>
+        <div class="tags">
+          <span class="tag blue">Embedded Systems</span>
+          <span class="tag teal">FDA-Regulated Devices</span>
+          <span class="tag blue">IEC 62304 · ISO 14971</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag teal">IoT · BLE</span>
+        </div>
+        <div class="orcid-line">
+          <span class="orcid-badge">iD</span>
+          <a href="https://orcid.org/0009-0003-9549-5543" target="_blank" rel="noopener">
+            0009-0003-9549-5543
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <p class="section-label">About</p>
+      <p class="bio">
+        Akul Mallayya Swami is a safety-critical embedded systems engineer specializing in FDA-regulated medical devices. His work focuses on integrating embedded firmware, wireless communication, ultra-low-power hardware, and machine learning–based automation into cancer treatment and medical recovery systems to improve regulatory compliance, reliability, and patient safety. He is experienced in standards-aligned verification frameworks under IEC 62304 and ISO 14971, and leads CAPA processes and safety testing in regulated product environments.
+      </p>
+    </section>
+
+    <section>
+      <p class="section-label">Education</p>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-degree">Master of Science</div>
+          <div class="edu-field">Computer Engineering</div>
+          <div class="edu-meta">University of Massachusetts Lowell &nbsp;·&nbsp; 2017</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">Bachelor of Science</div>
+          <div class="edu-field">Electronics &amp; Telecommunication Engineering</div>
+          <div class="edu-meta">University of Pune &nbsp;·&nbsp; 2015</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Experience</p>
+      <div class="exp-list">
+        <div class="exp-item">
+          <div>
+            <div class="exp-company">Varian Medical Systems</div>
+            <div class="exp-role">Embedded Software Engineer — Radiation Therapy Systems</div>
+          </div>
+          <div class="exp-badge">Current</div>
+        </div>
+        <div class="exp-item">
+          <div>
+            <div class="exp-company">Johnson Outdoors</div>
+            <div class="exp-role">Embedded Engineer — Rugged Electronics</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div>
+            <div class="exp-company">Powercast</div>
+            <div class="exp-role">Embedded Engineer — Ultra-Low-Power IoT</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div>
+            <div class="exp-company">Catapult</div>
+            <div class="exp-role">Embedded Firmware — Medical Recovery Systems</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Research Interests</p>
+      <div class="interests">
+        <div class="interest"><div class="dot"></div><span>Safety-critical embedded software verification for FDA-regulated medical devices</span></div>
+        <div class="interest"><div class="dot"></div><span>Integration of machine learning and automation into cancer treatment systems</span></div>
+        <div class="interest"><div class="dot"></div><span>Standards-aligned risk management frameworks (IEC 62304, ISO 14971, SaMD)</span></div>
+        <div class="interest"><div class="dot"></div><span>Ultra-low-power wireless communication and IoT in biomedical applications</span></div>
+        <div class="interest"><div class="dot"></div><span>Regulatory compliance and CAPA process improvement in software-driven medical devices</span></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Certifications</p>
+      <div class="cert-grid">
+        <div class="cert">IEC 62304</div>
+        <div class="cert">ISO 14971 — Risk Management</div>
+        <div class="cert">Software as a Medical Device (SaMD)</div>
+        <div class="cert">BLE / IoT</div>
+        <div class="cert">AI / ML</div>
+        <div class="cert">Medical Device HQ — Risk Management</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Akul Mallayya Swami &nbsp;·&nbsp; ORCID: 0009-0003-9549-5543</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
