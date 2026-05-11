@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akul Mallayya Swami — Embedded Systems Engineer</title>
+  <title>Akul Mallayya Swami — Runtime Assurance and Safety Critical Edge ML Systems</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -35,16 +35,16 @@
       font-weight: 300;
     }
 
-    /* ── Layout ── */
-    .container { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
 
-    /* ── Header ── */
     header {
       padding: 3.5rem 0 2.5rem;
       border-bottom: 1px solid var(--border);
       animation: fadeUp 0.6s ease both;
     }
+
     .header-inner { display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
+
     .avatar {
       width: 72px; height: 72px; border-radius: 50%;
       background: var(--accent-light);
@@ -52,22 +52,27 @@
       font-family: var(--serif); font-size: 22px; color: var(--accent);
       flex-shrink: 0; margin-top: 4px;
     }
+
     h1 {
       font-family: var(--serif);
-      font-size: clamp(26px, 5vw, 36px);
+      font-size: clamp(28px, 5vw, 40px);
       font-weight: 400;
       line-height: 1.15;
       letter-spacing: -0.01em;
       color: var(--text);
     }
+
     .role {
       font-size: 14px;
       font-weight: 400;
       color: var(--muted);
-      margin: 6px 0 12px;
+      margin: 7px 0 12px;
       letter-spacing: 0.01em;
+      max-width: 660px;
     }
+
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
     .tag {
       font-size: 11.5px;
       font-weight: 400;
@@ -78,6 +83,7 @@
       color: var(--muted);
       letter-spacing: 0.01em;
     }
+
     .tag.blue { background: var(--accent-light); color: var(--accent); border-color: transparent; }
     .tag.teal { background: var(--teal-light); color: var(--teal); border-color: transparent; }
 
@@ -85,58 +91,75 @@
       display: flex; align-items: center; gap: 8px;
       margin-top: 14px; font-size: 13px; color: var(--muted);
     }
+
     .orcid-badge {
       background: #a6ce39; color: #fff;
       font-size: 10px; font-weight: 500;
       padding: 2px 7px; border-radius: 3px;
       letter-spacing: 0.04em;
     }
-    .orcid-line a { color: var(--accent); text-decoration: none; }
-    .orcid-line a:hover { text-decoration: underline; }
 
-    /* ── Sections ── */
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
     main { padding: 2.5rem 0; }
+
     section {
       margin-bottom: 2.5rem;
       animation: fadeUp 0.5s ease both;
     }
+
     section:nth-child(1) { animation-delay: 0.05s; }
     section:nth-child(2) { animation-delay: 0.1s; }
     section:nth-child(3) { animation-delay: 0.15s; }
     section:nth-child(4) { animation-delay: 0.2s; }
     section:nth-child(5) { animation-delay: 0.25s; }
+    section:nth-child(6) { animation-delay: 0.3s; }
+    section:nth-child(7) { animation-delay: 0.35s; }
 
     .section-label {
       font-size: 10.5px;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 1rem;
     }
 
-    /* ── Bio ── */
-    .bio { font-size: 15px; color: var(--text); line-height: 1.8; font-weight: 300; }
+    .bio { font-size: 15px; color: var(--text); line-height: 1.82; font-weight: 300; }
+    .bio + .bio { margin-top: 0.85rem; }
 
-    /* ── Education cards ── */
-    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-    .edu-card {
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+      font-size: 14px;
+    }
+
+    .edu-grid, .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+
+    .edu-card, .research-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1rem 1.25rem;
     }
-    .edu-degree { font-size: 13.5px; font-weight: 500; color: var(--text); }
-    .edu-field { font-family: var(--serif); font-size: 16px; color: var(--text); margin: 2px 0 6px; }
-    .edu-meta { font-size: 12.5px; color: var(--muted); }
 
-    /* ── Experience ── */
+    .edu-degree, .card-title { font-size: 13.5px; font-weight: 600; color: var(--text); }
+    .edu-field { font-family: var(--serif); font-size: 16px; color: var(--text); margin: 2px 0 6px; }
+    .edu-meta, .card-meta { font-size: 12.5px; color: var(--muted); }
+    .card-text { font-size: 13.5px; color: var(--text); margin-top: 8px; line-height: 1.65; }
+
     .exp-list {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
     }
+
     .exp-item {
       display: flex;
       justify-content: space-between;
@@ -145,9 +168,12 @@
       padding: 1rem 1.25rem;
       border-bottom: 1px solid var(--border);
     }
+
     .exp-item:last-child { border-bottom: none; }
-    .exp-company { font-size: 14px; font-weight: 500; color: var(--text); }
+    .exp-company { font-size: 14px; font-weight: 600; color: var(--text); }
     .exp-role { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .exp-detail { font-size: 13px; color: var(--text); margin-top: 7px; line-height: 1.6; }
+
     .exp-badge {
       font-size: 11px; font-weight: 500; white-space: nowrap;
       padding: 3px 9px; border-radius: 100px;
@@ -155,19 +181,20 @@
       margin-top: 2px;
     }
 
-    /* ── Research interests ── */
     .interests { display: flex; flex-direction: column; gap: 10px; }
+
     .interest {
       display: flex; align-items: flex-start; gap: 12px;
       font-size: 14px; color: var(--text); line-height: 1.55;
     }
+
     .dot {
       width: 6px; height: 6px; border-radius: 50%;
       background: var(--accent); flex-shrink: 0; margin-top: 6px;
     }
 
-    /* ── Certifications ── */
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; }
+
     .cert {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -177,7 +204,6 @@
       color: var(--text);
     }
 
-    /* ── Footer ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 1.5rem 0;
@@ -185,7 +211,6 @@
       color: var(--muted);
     }
 
-    /* ── Animation ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -195,6 +220,7 @@
       .container { padding: 0 1.25rem; }
       header { padding: 2rem 0 1.75rem; }
       .header-inner { gap: 1.25rem; }
+      .exp-item { flex-direction: column; }
     }
   </style>
 </head>
@@ -207,13 +233,13 @@
       <div class="avatar">AS</div>
       <div>
         <h1>Akul Mallayya Swami</h1>
-        <p class="role">Safety-Critical Embedded Systems Engineer &nbsp;·&nbsp; Medical Devices</p>
+        <p class="role">Independent Researcher in Runtime Assurance and Safety Critical Edge ML Systems</p>
         <div class="tags">
-          <span class="tag blue">Embedded Systems</span>
-          <span class="tag teal">FDA-Regulated Devices</span>
-          <span class="tag blue">IEC 62304 · ISO 14971</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag teal">IoT · BLE</span>
+          <span class="tag blue">Runtime Assurance</span>
+          <span class="tag teal">Trustworthy Edge ML</span>
+          <span class="tag blue">Timing Validation</span>
+          <span class="tag teal">Safety Critical Software</span>
+          <span class="tag">IEC 62304 · ISO 14971</span>
         </div>
         <div class="orcid-line">
           <span class="orcid-badge">iD</span>
@@ -230,22 +256,67 @@
     <section>
       <p class="section-label">About</p>
       <p class="bio">
-        Akul Mallayya Swami is a safety-critical embedded systems engineer specializing in FDA-regulated medical devices. His work focuses on integrating embedded firmware, wireless communication, ultra-low-power hardware, and machine learning–based automation into cancer treatment and medical recovery systems to improve regulatory compliance, reliability, and patient safety. He is experienced in standards-aligned verification frameworks under IEC 62304 and ISO 14971, and leads CAPA processes and safety testing in regulated product environments.
+        Akul Mallayya Swami is an independent researcher and safety critical embedded systems engineer focused on deployment assurance, runtime trustworthiness, and timing validation for edge machine learning systems operating in real world environments.
       </p>
+      <p class="bio">
+        His research investigates how AI systems can remain statistically correct while becoming temporally unreliable under deployment interference, a failure mode that is often under evaluated in current ML validation pipelines.
+      </p>
+      <p class="bio">
+        His current work focuses on hardware validated timing analysis, runtime timing fidelity monitoring, and interference aware deployment evaluation for edge AI systems using externally calibrated measurement methodologies.
+      </p>
+      <div class="callout">
+        Current research thesis: timing trustworthiness should be treated as a first class deployment assurance property for edge ML systems, separate from statistical accuracy.
+      </div>
     </section>
 
     <section>
-      <p class="section-label">Education</p>
-      <div class="edu-grid">
-        <div class="edu-card">
-          <div class="edu-degree">Master of Science</div>
-          <div class="edu-field">Computer Engineering</div>
-          <div class="edu-meta">University of Massachusetts Lowell &nbsp;·&nbsp; 2017</div>
+      <p class="section-label">Current Research</p>
+      <div class="card-grid">
+        <div class="research-card">
+          <div class="card-title">TFS Guard</div>
+          <div class="card-meta">Runtime timing fidelity monitoring</div>
+          <p class="card-text">
+            TFS Guard studies how deployed edge ML systems can preserve output correctness while violating timing assumptions under runtime interference. The work evaluates timing drift, deadline violation behavior, and hardware validated runtime observability.
+          </p>
         </div>
-        <div class="edu-card">
-          <div class="edu-degree">Bachelor of Science</div>
-          <div class="edu-field">Electronics &amp; Telecommunication Engineering</div>
-          <div class="edu-meta">University of Pune &nbsp;·&nbsp; 2015</div>
+        <div class="research-card">
+          <div class="card-title">Edge ML Deployment Assurance</div>
+          <div class="card-meta">Jetson Orin Nano · Coral Dev Board Micro · Saleae timing reference</div>
+          <p class="card-text">
+            Comparative experiments examine shared Linux inference environments and more isolated edge inference paths to evaluate how architecture affects temporal reliability under realistic contention.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Research Interests</p>
+      <div class="interests">
+        <div class="interest"><div class="dot"></div><span>Runtime assurance for deployed edge ML systems</span></div>
+        <div class="interest"><div class="dot"></div><span>Timing trustworthiness and temporal reliability in AI deployment</span></div>
+        <div class="interest"><div class="dot"></div><span>Hardware validated latency analysis and external timing calibration</span></div>
+        <div class="interest"><div class="dot"></div><span>Interference aware deployment validation methodologies</span></div>
+        <div class="interest"><div class="dot"></div><span>Safety critical embedded software verification</span></div>
+        <div class="interest"><div class="dot"></div><span>Standards aligned software assurance under IEC 62304 and ISO 14971</span></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Research and Publications</p>
+      <div class="card-grid">
+        <div class="research-card">
+          <div class="card-title">Preprints and Workshop Submissions</div>
+          <div class="card-meta">In progress</div>
+          <p class="card-text">
+            Research manuscripts and preprints focus on deployment timing validation, runtime trustworthiness, and externally calibrated timing measurement for edge ML systems.
+          </p>
+        </div>
+        <div class="research-card">
+          <div class="card-title">Open Research Infrastructure</div>
+          <div class="card-meta">Reproducibility artifacts</div>
+          <p class="card-text">
+            Public repositories are being structured around experiment protocols, timing logs, analysis scripts, hardware calibration notes, and reproducible edge ML timing evaluations.
+          </p>
         </div>
       </div>
     </section>
@@ -255,59 +326,67 @@
       <div class="exp-list">
         <div class="exp-item">
           <div>
-            <div class="exp-company">Varian Medical Systems</div>
-            <div class="exp-role">Embedded Software Engineer — Radiation Therapy Systems</div>
+            <div class="exp-company">Safety Critical Medical Device Systems</div>
+            <div class="exp-role">Embedded software engineering for FDA regulated medical device environments</div>
+            <div class="exp-detail">
+              Work involving runtime reliability, verification workflows, fault analysis, risk management, and standards aligned development practices for high reliability software systems.
+            </div>
           </div>
           <div class="exp-badge">Current</div>
         </div>
         <div class="exp-item">
           <div>
-            <div class="exp-company">Johnson Outdoors</div>
-            <div class="exp-role">Embedded Engineer — Rugged Electronics</div>
+            <div class="exp-company">Embedded AI and Edge Systems</div>
+            <div class="exp-role">Deployment timing validation and runtime observability</div>
+            <div class="exp-detail">
+              Research and development involving embedded inference systems, hardware validated timing analysis, interference aware execution, and runtime monitoring of deployed edge AI systems.
+            </div>
           </div>
         </div>
         <div class="exp-item">
           <div>
-            <div class="exp-company">Powercast</div>
-            <div class="exp-role">Embedded Engineer — Ultra-Low-Power IoT</div>
-          </div>
-        </div>
-        <div class="exp-item">
-          <div>
-            <div class="exp-company">Catapult</div>
-            <div class="exp-role">Embedded Firmware — Medical Recovery Systems</div>
+            <div class="exp-company">Low Power and Wireless Embedded Systems</div>
+            <div class="exp-role">Resource constrained device software and connected embedded platforms</div>
+            <div class="exp-detail">
+              Experience with ultra low power systems, wireless communication, embedded firmware, and constrained edge architectures.
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section>
-      <p class="section-label">Research Interests</p>
-      <div class="interests">
-        <div class="interest"><div class="dot"></div><span>Safety-critical embedded software verification for FDA-regulated medical devices</span></div>
-        <div class="interest"><div class="dot"></div><span>Integration of machine learning and automation into cancer treatment systems</span></div>
-        <div class="interest"><div class="dot"></div><span>Standards-aligned risk management frameworks (IEC 62304, ISO 14971, SaMD)</span></div>
-        <div class="interest"><div class="dot"></div><span>Ultra-low-power wireless communication and IoT in biomedical applications</span></div>
-        <div class="interest"><div class="dot"></div><span>Regulatory compliance and CAPA process improvement in software-driven medical devices</span></div>
+      <p class="section-label">Education</p>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-degree">Master of Science</div>
+          <div class="edu-field">Computer Engineering</div>
+          <div class="edu-meta">University of Massachusetts Lowell · 2017</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">Bachelor of Science</div>
+          <div class="edu-field">Electronics and Telecommunication Engineering</div>
+          <div class="edu-meta">University of Pune · 2015</div>
+        </div>
       </div>
     </section>
 
     <section>
-      <p class="section-label">Certifications</p>
+      <p class="section-label">Standards and Technical Focus</p>
       <div class="cert-grid">
         <div class="cert">IEC 62304</div>
-        <div class="cert">ISO 14971 — Risk Management</div>
-        <div class="cert">Software as a Medical Device (SaMD)</div>
-        <div class="cert">BLE / IoT</div>
-        <div class="cert">AI / ML</div>
-        <div class="cert">Medical Device HQ — Risk Management</div>
+        <div class="cert">ISO 14971 Risk Management</div>
+        <div class="cert">Software as a Medical Device</div>
+        <div class="cert">Safety Critical Embedded Software</div>
+        <div class="cert">Runtime Monitoring</div>
+        <div class="cert">Hardware Validated Timing</div>
       </div>
     </section>
 
   </main>
 
   <footer>
-    <p>Akul Mallayya Swami &nbsp;·&nbsp; ORCID: 0009-0003-9549-5543</p>
+    <p>Akul Mallayya Swami · Independent Researcher · ORCID: 0009-0003-9549-5543</p>
   </footer>
 
 </div>
