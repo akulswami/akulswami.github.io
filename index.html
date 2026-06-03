@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akul Mallayya Swami — Runtime Assurance and Safety Critical Edge ML Systems</title>
+  <title>Akul Mallayya Swami: Runtime Assurance and Safety Critical Edge ML Systems</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -211,6 +211,45 @@
       color: var(--muted);
     }
 
+    .pub-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .pub {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+    }
+
+    .pub-meta {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 1rem; flex-wrap: wrap; margin-bottom: 6px;
+    }
+
+    .pub-venue {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--accent);
+    }
+
+    .pub-date { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+    .pub-title {
+      font-family: var(--serif); font-size: 16px; line-height: 1.3;
+      color: var(--text); margin-bottom: 5px;
+    }
+
+    .pub-authors { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .pub-authors .me { color: var(--text); font-weight: 600; }
+
+    .pub-links { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    .pub-link {
+      font-size: 11.5px; font-weight: 500; letter-spacing: 0.02em;
+      padding: 3px 10px; border-radius: 100px;
+      border: 1px solid var(--border); background: var(--bg);
+      color: var(--muted);
+    }
+    .pub-link:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -303,19 +342,85 @@
 
     <section>
       <p class="section-label">Research and Publications</p>
+      <div class="pub-list">
+
+        <div class="pub">
+          <div class="pub-meta">
+            <span class="pub-venue">Embedded Computing Design · Trade Article</span>
+            <span class="pub-date">June 2026</span>
+          </div>
+          <div class="pub-title">When Correct Outputs Aren't Enough: Testing Edge AI for Hidden Timing Failures on Shared Silicon</div>
+          <div class="pub-authors"><span class="me">Akul Swami</span></div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://embeddedcomputing.com/application/edge-ai/when-correct-outputs-arent-enough-testing-edge-ai-for-hidden-timing-failures-on-shared-silicon" target="_blank" rel="noopener">Read article</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-meta">
+            <span class="pub-venue">arXiv Preprint · Submitted to IEEE Sensors Letters</span>
+            <span class="pub-date">May 2026</span>
+          </div>
+          <div class="pub-title">Wire-Level Interrupt-to-Decision Latency of On-Sensor MLC versus Host Inference on the NVIDIA Jetson Orin Nano: A Pre-Registered Measurement Study</div>
+          <div class="pub-authors"><span class="me">Akul Swami</span>, Dnyaneshwar Sonawane</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://arxiv.org/abs/2606.00524" target="_blank" rel="noopener">arXiv:2606.00524</a>
+            <a class="pub-link" href="https://doi.org/10.48550/arXiv.2606.00524" target="_blank" rel="noopener">DOI</a>
+            <a class="pub-link" href="https://github.com/akulswami/sensor-mlc-latency" target="_blank" rel="noopener">Code and data</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-meta">
+            <span class="pub-venue">arXiv Preprint · Workshop</span>
+            <span class="pub-date">May 2026</span>
+          </div>
+          <div class="pub-title">Architecture-Dependent Temporal Observability Under Deployment Interference in Edge Inference Systems</div>
+          <div class="pub-authors"><span class="me">Akul Swami</span>, Nikhil Chougule</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://arxiv.org/abs/2605.17701" target="_blank" rel="noopener">arXiv:2605.17701</a>
+            <a class="pub-link" href="https://doi.org/10.48550/arXiv.2605.17701" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-meta">
+            <span class="pub-venue">arXiv Preprint · Submitted to IEEE SMC</span>
+            <span class="pub-date">May 2026</span>
+          </div>
+          <div class="pub-title">Per-Platform GPIO Overhead in Hardware-Validated Edge ML Inference Timing</div>
+          <div class="pub-authors"><span class="me">Akul Swami</span>, Nikhil Chougule</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://arxiv.org/abs/2605.02835" target="_blank" rel="noopener">arXiv:2605.02835</a>
+            <a class="pub-link" href="https://doi.org/10.48550/arXiv.2605.02835" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-meta">
+            <span class="pub-venue">arXiv Preprint · Submitted to IEEE Embedded Systems Letters</span>
+            <span class="pub-date">April 2026</span>
+          </div>
+          <div class="pub-title">Architectural Isolation as a Timing Safety Primitive for Edge AI Medical Devices: Controlled Experimental Evidence on a Shared-Silicon Platform</div>
+          <div class="pub-authors"><span class="me">Akul Swami</span></div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://arxiv.org/abs/2604.23831" target="_blank" rel="noopener">arXiv:2604.23831</a>
+            <a class="pub-link" href="https://doi.org/10.48550/arXiv.2604.23831" target="_blank" rel="noopener">DOI</a>
+            <a class="pub-link" href="https://github.com/akulswami/p2-edge-ai-samd" target="_blank" rel="noopener">Protocol</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Open Research Infrastructure</p>
       <div class="card-grid">
         <div class="research-card">
-          <div class="card-title">Preprints and Workshop Submissions</div>
-          <div class="card-meta">In progress</div>
+          <div class="card-title">Reproducibility Artifacts</div>
+          <div class="card-meta">Public repositories</div>
           <p class="card-text">
-            Research manuscripts and preprints focus on deployment timing validation, runtime trustworthiness, and externally calibrated timing measurement for edge ML systems.
-          </p>
-        </div>
-        <div class="research-card">
-          <div class="card-title">Open Research Infrastructure</div>
-          <div class="card-meta">Reproducibility artifacts</div>
-          <p class="card-text">
-            Public repositories are being structured around experiment protocols, timing logs, analysis scripts, hardware calibration notes, and reproducible edge ML timing evaluations.
+            Experiment protocols, raw timing logs, analysis scripts, hardware calibration notes, and reproducible edge ML timing evaluations published alongside the preprints above.
           </p>
         </div>
       </div>
