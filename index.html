@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akul Mallayya Swami: Runtime Assurance and Safety Critical Edge ML Systems</title>
+  <meta name="description" content="Akul Mallayya Swami — independent researcher and safety-critical embedded systems engineer working on runtime assurance, timing trustworthiness, and deployment validation for edge AI systems." />
+  <title>Akul Mallayya Swami | Runtime Assurance and Trustworthy Edge AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -16,10 +17,12 @@
       --text: #1a1a18;
       --muted: #6b6b68;
       --accent: #1a4a8a;
+      --accent-dark: #123564;
       --accent-light: #dde8f7;
       --teal: #0f6e56;
       --teal-light: #e1f5ee;
-      --border: rgba(0,0,0,0.09);
+      --border: rgba(0, 0, 0, 0.09);
+      --shadow: 0 10px 28px rgba(15, 28, 48, 0.06);
       --serif: 'DM Serif Display', Georgia, serif;
       --sans: 'DM Sans', system-ui, sans-serif;
     }
@@ -35,10 +38,53 @@
       font-weight: 300;
     }
 
-    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 930px; margin: 0 auto; padding: 0 2rem; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 3px solid rgba(26, 74, 138, 0.25); outline-offset: 3px; border-radius: 4px; }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(245, 244, 240, 0.92);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      color: var(--text);
+      font-size: 17px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 5px 14px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
 
     header {
-      padding: 3.5rem 0 2.5rem;
+      padding: 3.4rem 0 2.4rem;
       border-bottom: 1px solid var(--border);
       animation: fadeUp 0.6s ease both;
     }
@@ -46,16 +92,24 @@
     .header-inner { display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
 
     .avatar {
-      width: 72px; height: 72px; border-radius: 50%;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
       background: var(--accent-light);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif); font-size: 22px; color: var(--accent);
-      flex-shrink: 0; margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 23px;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 4px;
+      border: 1px solid rgba(26, 74, 138, 0.08);
     }
 
     h1 {
       font-family: var(--serif);
-      font-size: clamp(28px, 5vw, 40px);
+      font-size: clamp(29px, 5vw, 42px);
       font-weight: 400;
       line-height: 1.15;
       letter-spacing: -0.01em;
@@ -66,9 +120,9 @@
       font-size: 14px;
       font-weight: 400;
       color: var(--muted);
-      margin: 7px 0 12px;
+      margin: 8px 0 13px;
       letter-spacing: 0.01em;
-      max-width: 660px;
+      max-width: 680px;
     }
 
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -87,34 +141,64 @@
     .tag.blue { background: var(--accent-light); color: var(--accent); border-color: transparent; }
     .tag.teal { background: var(--teal-light); color: var(--teal); border-color: transparent; }
 
-    .orcid-line {
-      display: flex; align-items: center; gap: 8px;
-      margin-top: 14px; font-size: 13px; color: var(--muted);
+    .identity-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin-top: 15px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
+    .orcid-line { display: flex; align-items: center; gap: 8px; }
+
     .orcid-badge {
-      background: #a6ce39; color: #fff;
-      font-size: 10px; font-weight: 500;
-      padding: 2px 7px; border-radius: 3px;
+      background: #a6ce39;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 3px;
       letter-spacing: 0.04em;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    .credibility-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-top: 1.4rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
 
-    main { padding: 2.5rem 0; }
+    .credibility-item {
+      padding: 0.85rem 1rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .credibility-item:last-child { border-right: none; }
+    .credibility-item strong { display: block; color: var(--text); font-size: 13.5px; font-weight: 600; }
+
+    main { padding: 2.6rem 0; }
 
     section {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.8rem;
       animation: fadeUp 0.5s ease both;
+      scroll-margin-top: 76px;
     }
 
     section:nth-child(1) { animation-delay: 0.05s; }
-    section:nth-child(2) { animation-delay: 0.1s; }
+    section:nth-child(2) { animation-delay: 0.10s; }
     section:nth-child(3) { animation-delay: 0.15s; }
-    section:nth-child(4) { animation-delay: 0.2s; }
+    section:nth-child(4) { animation-delay: 0.20s; }
     section:nth-child(5) { animation-delay: 0.25s; }
-    section:nth-child(6) { animation-delay: 0.3s; }
+    section:nth-child(6) { animation-delay: 0.30s; }
     section:nth-child(7) { animation-delay: 0.35s; }
 
     .section-label {
@@ -125,6 +209,17 @@
       color: var(--muted);
       margin-bottom: 1rem;
     }
+
+    .subsection-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.25;
+      margin: 1.5rem 0 0.8rem;
+      color: var(--text);
+    }
+
+    .subsection-title:first-of-type { margin-top: 0; }
 
     .bio { font-size: 15px; color: var(--text); line-height: 1.82; font-weight: 300; }
     .bio + .bio { margin-top: 0.85rem; }
@@ -137,15 +232,25 @@
       padding: 1rem 1.25rem;
       margin-top: 1rem;
       font-size: 14px;
+      box-shadow: var(--shadow);
     }
 
-    .edu-grid, .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+    .edu-grid, .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
 
     .edu-card, .research-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1rem 1.25rem;
+    }
+
+    .research-card.featured {
+      border-color: rgba(26, 74, 138, 0.22);
+      box-shadow: var(--shadow);
     }
 
     .edu-degree, .card-title { font-size: 13.5px; font-weight: 600; color: var(--text); }
@@ -175,25 +280,41 @@
     .exp-detail { font-size: 13px; color: var(--text); margin-top: 7px; line-height: 1.6; }
 
     .exp-badge {
-      font-size: 11px; font-weight: 500; white-space: nowrap;
-      padding: 3px 9px; border-radius: 100px;
-      background: var(--teal-light); color: var(--teal);
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 3px 9px;
+      border-radius: 100px;
+      background: var(--teal-light);
+      color: var(--teal);
       margin-top: 2px;
     }
 
     .interests { display: flex; flex-direction: column; gap: 10px; }
 
     .interest {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 14px; color: var(--text); line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
     }
 
     .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent); flex-shrink: 0; margin-top: 6px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 6px;
     }
 
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 8px;
+    }
 
     .cert {
       background: var(--surface);
@@ -202,13 +323,6 @@
       padding: 9px 14px;
       font-size: 13px;
       color: var(--text);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 0;
-      font-size: 12.5px;
-      color: var(--muted);
     }
 
     .pub-list { display: flex; flex-direction: column; gap: 12px; }
@@ -220,281 +334,386 @@
       padding: 1rem 1.25rem;
     }
 
+    .pub.featured {
+      border-color: rgba(26, 74, 138, 0.25);
+      box-shadow: var(--shadow);
+    }
+
     .pub-meta {
-      display: flex; justify-content: space-between; align-items: baseline;
-      gap: 1rem; flex-wrap: wrap; margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
     }
 
     .pub-venue {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
     }
 
     .pub-date { font-size: 12px; color: var(--muted); white-space: nowrap; }
 
     .pub-title {
-      font-family: var(--serif); font-size: 16px; line-height: 1.3;
-      color: var(--text); margin-bottom: 5px;
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.32;
+      color: var(--text);
+      margin-bottom: 5px;
     }
 
-    .pub-authors { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .pub-authors { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
     .pub-authors .me { color: var(--text); font-weight: 600; }
+    .pub-summary { font-size: 13.5px; color: var(--text); line-height: 1.66; margin-bottom: 11px; }
 
     .pub-links { display: flex; flex-wrap: wrap; gap: 7px; }
 
     .pub-link {
-      font-size: 11.5px; font-weight: 500; letter-spacing: 0.02em;
-      padding: 3px 10px; border-radius: 100px;
-      border: 1px solid var(--border); background: var(--bg);
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--bg);
       color: var(--muted);
     }
-    .pub-link:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
+    .pub-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0 2.4rem;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 760px) {
+      .credibility-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .credibility-item:nth-child(2) { border-right: none; }
+      .credibility-item:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .nav-inner { align-items: flex-start; flex-direction: column; padding: 11px 0; }
+      .nav-links { justify-content: flex-start; }
+      section { scroll-margin-top: 110px; }
     }
 
     @media (max-width: 560px) {
       .container { padding: 0 1.25rem; }
-      header { padding: 2rem 0 1.75rem; }
+      header { padding: 2.1rem 0 1.8rem; }
       .header-inner { gap: 1.25rem; }
+      .avatar { width: 66px; height: 66px; }
       .exp-item { flex-direction: column; }
+      .credibility-strip { grid-template-columns: 1fr; }
+      .credibility-item,
+      .credibility-item:nth-child(2) { border-right: none; border-bottom: 1px solid var(--border); }
+      .credibility-item:last-child { border-bottom: none; }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-
-  <header>
-    <div class="header-inner">
-      <div class="avatar">AS</div>
-      <div>
-        <h1>Akul Mallayya Swami</h1>
-        <p class="role">Independent Researcher in Runtime Assurance and Safety Critical Edge ML Systems</p>
-        <div class="tags">
-          <span class="tag blue">Runtime Assurance</span>
-          <span class="tag teal">Trustworthy Edge ML</span>
-          <span class="tag blue">Timing Validation</span>
-          <span class="tag teal">Safety Critical Software</span>
-          <span class="tag">IEC 62304 · ISO 14971</span>
-        </div>
-        <div class="orcid-line">
-          <span class="orcid-badge">iD</span>
-          <a href="https://orcid.org/0009-0003-9549-5543" target="_blank" rel="noopener">
-            0009-0003-9549-5543
-          </a>
-        </div>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="container nav-inner">
+      <a class="nav-name" href="#top">Akul Swami</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#open-research">Open Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <main>
+  <div class="container" id="top">
 
-    <section>
-      <p class="section-label">About</p>
-      <p class="bio">
-        Akul Mallayya Swami is an independent researcher and safety critical embedded systems engineer focused on deployment assurance, runtime trustworthiness, and timing validation for edge machine learning systems operating in real world environments.
-      </p>
-      <p class="bio">
-        His research investigates how AI systems can remain statistically correct while becoming temporally unreliable under deployment interference, a failure mode that is often under evaluated in current ML validation pipelines.
-      </p>
-      <p class="bio">
-        His current work focuses on hardware validated timing analysis, runtime timing fidelity monitoring, and interference aware deployment evaluation for edge AI systems using externally calibrated measurement methodologies.
-      </p>
-      <div class="callout">
-        Current research thesis: timing trustworthiness should be treated as a first class deployment assurance property for edge ML systems, separate from statistical accuracy.
-      </div>
-    </section>
-
-    <section>
-      <p class="section-label">Current Research</p>
-      <div class="card-grid">
-        <div class="research-card">
-          <div class="card-title">TFS Guard</div>
-          <div class="card-meta">Runtime timing fidelity monitoring</div>
-          <p class="card-text">
-            TFS Guard studies how deployed edge ML systems can preserve output correctness while violating timing assumptions under runtime interference. The work evaluates timing drift, deadline violation behavior, and hardware validated runtime observability.
-          </p>
-        </div>
-        <div class="research-card">
-          <div class="card-title">Edge ML Deployment Assurance</div>
-          <div class="card-meta">Jetson Orin Nano · Coral Dev Board Micro · Saleae timing reference</div>
-          <p class="card-text">
-            Comparative experiments examine shared Linux inference environments and more isolated edge inference paths to evaluate how architecture affects temporal reliability under realistic contention.
-          </p>
+    <header>
+      <div class="header-inner">
+        <div class="avatar" aria-hidden="true">AS</div>
+        <div>
+          <h1>Akul Mallayya Swami</h1>
+          <p class="role">Independent Researcher and Safety-Critical Embedded Systems Engineer working on runtime assurance, timing trustworthiness, and deployment validation for edge AI systems.</p>
+          <div class="tags">
+            <span class="tag blue">Runtime Assurance</span>
+            <span class="tag teal">Trustworthy Edge AI</span>
+            <span class="tag blue">Timing Validation</span>
+            <span class="tag teal">Safety-Critical Software</span>
+            <span class="tag">IEC 62304 · ISO 14971</span>
+          </div>
+          <div class="identity-links">
+            <div class="orcid-line">
+              <span class="orcid-badge">iD</span>
+              <a href="https://orcid.org/0009-0003-9549-5543" target="_blank" rel="noopener noreferrer">0009-0003-9549-5543</a>
+            </div>
+            <a href="https://github.com/akulswami" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section>
-      <p class="section-label">Research Interests</p>
-      <div class="interests">
-        <div class="interest"><div class="dot"></div><span>Runtime assurance for deployed edge ML systems</span></div>
-        <div class="interest"><div class="dot"></div><span>Timing trustworthiness and temporal reliability in AI deployment</span></div>
-        <div class="interest"><div class="dot"></div><span>Hardware validated latency analysis and external timing calibration</span></div>
-        <div class="interest"><div class="dot"></div><span>Interference aware deployment validation methodologies</span></div>
-        <div class="interest"><div class="dot"></div><span>Safety critical embedded software verification</span></div>
-        <div class="interest"><div class="dot"></div><span>Standards aligned software assurance under IEC 62304 and ISO 14971</span></div>
+      <div class="credibility-strip" aria-label="Research profile summary">
+        <div class="credibility-item"><strong>2</strong>Industry publications</div>
+        <div class="credibility-item"><strong>4</strong>Research preprints</div>
+        <div class="credibility-item"><strong>Open</strong>Code and data artifacts</div>
+        <div class="credibility-item"><strong>IEEE</strong>Peer-review service</div>
       </div>
-    </section>
+    </header>
 
-    <section>
-      <p class="section-label">Research and Publications</p>
-      <div class="pub-list">
+    <main>
 
-        <div class="pub">
-          <div class="pub-meta">
-            <span class="pub-venue">Embedded Computing Design · Trade Article</span>
-            <span class="pub-date">June 2026</span>
+      <section id="about">
+        <p class="section-label">About</p>
+        <p class="bio">
+          Akul Mallayya Swami is an independent researcher and safety-critical embedded systems engineer studying the temporal reliability of edge AI systems operating under real-world deployment interference.
+        </p>
+        <p class="bio">
+          His work examines a failure mode that conventional accuracy testing can miss: an AI system may continue producing statistically correct outputs while becoming too slow or temporally unstable to satisfy its deployment requirements.
+        </p>
+        <p class="bio">
+          His research combines hardware-referenced timing measurements, controlled resource-contention experiments, and reproducible validation protocols across embedded AI platforms including the NVIDIA Jetson Orin Nano, Raspberry Pi, and Coral-class systems.
+        </p>
+        <div class="callout">
+          <strong>Research thesis:</strong> timing trustworthiness is a deployment-assurance property distinct from statistical accuracy and should be validated explicitly.
+        </div>
+      </section>
+
+      <section id="research">
+        <p class="section-label">Current Research</p>
+        <div class="card-grid">
+          <div class="research-card featured">
+            <div class="card-title">TFS Guard</div>
+            <div class="card-meta">Deadline-aware runtime timing-fidelity monitoring</div>
+            <p class="card-text">
+              TFS Guard investigates how deployed edge AI systems can preserve functional output correctness while violating timing assumptions under runtime interference. The work focuses on late-correct failures, deadline violations, tail-latency behavior, and externally validated runtime observability.
+            </p>
           </div>
-          <div class="pub-title">When Correct Outputs Aren't Enough: Testing Edge AI for Hidden Timing Failures on Shared Silicon</div>
-          <div class="pub-authors"><span class="me">Akul Swami</span></div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://embeddedcomputing.com/application/edge-ai/when-correct-outputs-arent-enough-testing-edge-ai-for-hidden-timing-failures-on-shared-silicon" target="_blank" rel="noopener">Read article</a>
+          <div class="research-card">
+            <div class="card-title">Edge AI Deployment Assurance</div>
+            <div class="card-meta">Jetson Orin Nano · Coral Dev Board Micro · Saleae timing reference</div>
+            <p class="card-text">
+              Comparative experiments examine shared Linux inference environments and more isolated embedded inference paths to determine how platform architecture, workload contention, and measurement boundaries affect temporal reliability.
+            </p>
           </div>
         </div>
+      </section>
 
-        <div class="pub">
-          <div class="pub-meta">
-            <span class="pub-venue">arXiv Preprint · Submitted to IEEE Sensors Letters</span>
-            <span class="pub-date">May 2026</span>
-          </div>
-          <div class="pub-title">Wire-Level Interrupt-to-Decision Latency of On-Sensor MLC versus Host Inference on the NVIDIA Jetson Orin Nano: A Pre-Registered Measurement Study</div>
-          <div class="pub-authors"><span class="me">Akul Swami</span>, Dnyaneshwar Sonawane</div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://arxiv.org/abs/2606.00524" target="_blank" rel="noopener">arXiv:2606.00524</a>
-            <a class="pub-link" href="https://doi.org/10.48550/arXiv.2606.00524" target="_blank" rel="noopener">DOI</a>
-            <a class="pub-link" href="https://github.com/akulswami/sensor-mlc-latency" target="_blank" rel="noopener">Code and data</a>
-          </div>
+      <section>
+        <p class="section-label">Research Interests</p>
+        <div class="interests">
+          <div class="interest"><div class="dot"></div><span>Runtime assurance for deployed edge AI and edge ML systems</span></div>
+          <div class="interest"><div class="dot"></div><span>Timing trustworthiness, deadline compliance, and temporal reliability</span></div>
+          <div class="interest"><div class="dot"></div><span>Hardware-referenced latency analysis and external timing calibration</span></div>
+          <div class="interest"><div class="dot"></div><span>Interference-aware deployment validation methodologies</span></div>
+          <div class="interest"><div class="dot"></div><span>Safety-critical embedded software verification and fault analysis</span></div>
+          <div class="interest"><div class="dot"></div><span>Standards-aligned software assurance under IEC 62304 and ISO 14971</span></div>
+        </div>
+      </section>
+
+      <section id="publications">
+        <p class="section-label">Publications</p>
+
+        <h2 class="subsection-title">Industry Publications</h2>
+        <div class="pub-list">
+          <article class="pub featured">
+            <div class="pub-meta">
+              <span class="pub-venue">The Embedded Edit · Industry Publication</span>
+              <span class="pub-date">July 2026</span>
+            </div>
+            <div class="pub-title">Uniform Validation Tolerances for Edge ML Platforms</div>
+            <div class="pub-authors"><span class="me">Akul Mallayya Swami</span>, Nikhil Chougule</div>
+            <p class="pub-summary">
+              A platform-aware examination of GPIO instrumentation overhead and cross-platform timing bias in edge ML validation, with hardware-referenced measurements spanning NVIDIA Jetson and Raspberry Pi deployments.
+            </p>
+            <div class="pub-links">
+              <a class="pub-link" href="https://www.embeddededit.com/article/uniform-validation-tolerances-edge-ml-platforms" target="_blank" rel="noopener noreferrer">Read article</a>
+              <a class="pub-link" href="https://arxiv.org/abs/2605.02835" target="_blank" rel="noopener noreferrer">Related preprint</a>
+            </div>
+          </article>
+
+          <article class="pub featured">
+            <div class="pub-meta">
+              <span class="pub-venue">Embedded Computing Design · Industry Publication</span>
+              <span class="pub-date">June 2026</span>
+            </div>
+            <div class="pub-title">When Correct Outputs Aren't Enough: Testing Edge AI for Hidden Timing Failures on Shared Silicon</div>
+            <div class="pub-authors"><span class="me">Akul Mallayya Swami</span></div>
+            <p class="pub-summary">
+              A controlled same-hardware study showing that an edge AI workload can preserve output behavior while violating deployment timing expectations under shared-system contention, motivating joint validation of correctness and tail latency.
+            </p>
+            <div class="pub-links">
+              <a class="pub-link" href="https://embeddedcomputing.com/application/edge-ai/when-correct-outputs-arent-enough-testing-edge-ai-for-hidden-timing-failures-on-shared-silicon" target="_blank" rel="noopener noreferrer">Read article</a>
+              <a class="pub-link" href="https://arxiv.org/abs/2604.23831" target="_blank" rel="noopener noreferrer">Related preprint</a>
+              <a class="pub-link" href="https://github.com/akulswami/p2-edge-ai-samd" target="_blank" rel="noopener noreferrer">Protocol</a>
+            </div>
+          </article>
         </div>
 
-        <div class="pub">
-          <div class="pub-meta">
-            <span class="pub-venue">arXiv Preprint · Workshop</span>
-            <span class="pub-date">May 2026</span>
+        <h2 class="subsection-title">Research Manuscripts and Preprints</h2>
+        <div class="pub-list">
+          <article class="pub">
+            <div class="pub-meta">
+              <span class="pub-venue">arXiv Preprint · Submitted to IEEE Sensors Letters</span>
+              <span class="pub-date">June 2026</span>
+            </div>
+            <div class="pub-title">Wire-Level Interrupt-to-Decision Latency of On-Sensor MLC versus Host Inference on the NVIDIA Jetson Orin Nano: A Pre-Registered Measurement Study</div>
+            <div class="pub-authors"><span class="me">Akul Mallayya Swami</span>, Dnyaneshwar Sonawane</div>
+            <div class="pub-links">
+              <a class="pub-link" href="https://arxiv.org/abs/2606.00524" target="_blank" rel="noopener noreferrer">arXiv:2606.00524</a>
+              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2606.00524" target="_blank" rel="noopener noreferrer">DOI</a>
+              <a class="pub-link" href="https://github.com/akulswami/sensor-mlc-latency" target="_blank" rel="noopener noreferrer">Code and data</a>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-meta">
+              <span class="pub-venue">arXiv Preprint · Workshop Manuscript</span>
+              <span class="pub-date">May 2026</span>
+            </div>
+            <div class="pub-title">Architecture-Dependent Temporal Observability Under Deployment Interference in Edge Inference Systems</div>
+            <div class="pub-authors"><span class="me">Akul Mallayya Swami</span>, Nikhil Chougule</div>
+            <div class="pub-links">
+              <a class="pub-link" href="https://arxiv.org/abs/2605.17701" target="_blank" rel="noopener noreferrer">arXiv:2605.17701</a>
+              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2605.17701" target="_blank" rel="noopener noreferrer">DOI</a>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-meta">
+              <span class="pub-venue">arXiv Preprint · Submitted to IEEE SMC</span>
+              <span class="pub-date">May 2026</span>
+            </div>
+            <div class="pub-title">Per-Platform GPIO Overhead in Hardware-Validated Edge ML Inference Timing</div>
+            <div class="pub-authors"><span class="me">Akul Mallayya Swami</span>, Nikhil Chougule</div>
+            <div class="pub-links">
+              <a class="pub-link" href="https://arxiv.org/abs/2605.02835" target="_blank" rel="noopener noreferrer">arXiv:2605.02835</a>
+              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2605.02835" target="_blank" rel="noopener noreferrer">DOI</a>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-meta">
+              <span class="pub-venue">arXiv Preprint · Submitted to IEEE Embedded Systems Letters</span>
+              <span class="pub-date">April 2026</span>
+            </div>
+            <div class="pub-title">Architectural Isolation as a Timing Safety Primitive for Edge AI Medical Devices: Controlled Experimental Evidence on a Shared-Silicon Platform</div>
+            <div class="pub-authors"><span class="me">Akul Mallayya Swami</span></div>
+            <div class="pub-links">
+              <a class="pub-link" href="https://arxiv.org/abs/2604.23831" target="_blank" rel="noopener noreferrer">arXiv:2604.23831</a>
+              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2604.23831" target="_blank" rel="noopener noreferrer">DOI</a>
+              <a class="pub-link" href="https://github.com/akulswami/p2-edge-ai-samd" target="_blank" rel="noopener noreferrer">Protocol</a>
+            </div>
+          </article>
+        </div>
+        <p class="note">Submission-status labels should be updated whenever a venue issues a final decision.</p>
+      </section>
+
+      <section id="open-research">
+        <p class="section-label">Open Research Infrastructure</p>
+        <div class="card-grid">
+          <div class="research-card featured">
+            <div class="card-title">Reproducibility Artifacts</div>
+            <div class="card-meta">Public repositories</div>
+            <p class="card-text">
+              Experiment protocols, timing logs, analysis scripts, hardware-calibration notes, and reproducible edge AI timing evaluations are published alongside selected manuscripts.
+            </p>
           </div>
-          <div class="pub-title">Architecture-Dependent Temporal Observability Under Deployment Interference in Edge Inference Systems</div>
-          <div class="pub-authors"><span class="me">Akul Swami</span>, Nikhil Chougule</div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://arxiv.org/abs/2605.17701" target="_blank" rel="noopener">arXiv:2605.17701</a>
-            <a class="pub-link" href="https://doi.org/10.48550/arXiv.2605.17701" target="_blank" rel="noopener">DOI</a>
+          <div class="research-card">
+            <div class="card-title">Research Profile</div>
+            <div class="card-meta">ORCID and GitHub</div>
+            <p class="card-text">
+              Research outputs, source code, datasets, and manuscript metadata are maintained through public repositories and an ORCID-linked research identity.
+            </p>
           </div>
         </div>
+      </section>
 
-        <div class="pub">
-          <div class="pub-meta">
-            <span class="pub-venue">arXiv Preprint · Submitted to IEEE SMC</span>
-            <span class="pub-date">May 2026</span>
+      <section id="experience">
+        <p class="section-label">Experience</p>
+        <div class="exp-list">
+          <div class="exp-item">
+            <div>
+              <div class="exp-company">Safety-Critical Medical Device Systems</div>
+              <div class="exp-role">Embedded software engineering for FDA-regulated medical-device environments</div>
+              <div class="exp-detail">
+                Work involving runtime reliability, verification workflows, fault analysis, risk management, and standards-aligned development practices for high-reliability software systems.
+              </div>
+            </div>
+            <div class="exp-badge">Current</div>
           </div>
-          <div class="pub-title">Per-Platform GPIO Overhead in Hardware-Validated Edge ML Inference Timing</div>
-          <div class="pub-authors"><span class="me">Akul Swami</span>, Nikhil Chougule</div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://arxiv.org/abs/2605.02835" target="_blank" rel="noopener">arXiv:2605.02835</a>
-            <a class="pub-link" href="https://doi.org/10.48550/arXiv.2605.02835" target="_blank" rel="noopener">DOI</a>
-          </div>
-        </div>
-
-        <div class="pub">
-          <div class="pub-meta">
-            <span class="pub-venue">arXiv Preprint · Submitted to IEEE Embedded Systems Letters</span>
-            <span class="pub-date">April 2026</span>
-          </div>
-          <div class="pub-title">Architectural Isolation as a Timing Safety Primitive for Edge AI Medical Devices: Controlled Experimental Evidence on a Shared-Silicon Platform</div>
-          <div class="pub-authors"><span class="me">Akul Swami</span></div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://arxiv.org/abs/2604.23831" target="_blank" rel="noopener">arXiv:2604.23831</a>
-            <a class="pub-link" href="https://doi.org/10.48550/arXiv.2604.23831" target="_blank" rel="noopener">DOI</a>
-            <a class="pub-link" href="https://github.com/akulswami/p2-edge-ai-samd" target="_blank" rel="noopener">Protocol</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section>
-      <p class="section-label">Open Research Infrastructure</p>
-      <div class="card-grid">
-        <div class="research-card">
-          <div class="card-title">Reproducibility Artifacts</div>
-          <div class="card-meta">Public repositories</div>
-          <p class="card-text">
-            Experiment protocols, raw timing logs, analysis scripts, hardware calibration notes, and reproducible edge ML timing evaluations published alongside the preprints above.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <p class="section-label">Experience</p>
-      <div class="exp-list">
-        <div class="exp-item">
-          <div>
-            <div class="exp-company">Safety Critical Medical Device Systems</div>
-            <div class="exp-role">Embedded software engineering for FDA regulated medical device environments</div>
-            <div class="exp-detail">
-              Work involving runtime reliability, verification workflows, fault analysis, risk management, and standards aligned development practices for high reliability software systems.
+          <div class="exp-item">
+            <div>
+              <div class="exp-company">Embedded AI and Edge Systems</div>
+              <div class="exp-role">Deployment timing validation and runtime observability</div>
+              <div class="exp-detail">
+                Research and development involving embedded inference systems, hardware-referenced timing analysis, interference-aware execution, and runtime monitoring of deployed edge AI workloads.
+              </div>
             </div>
           </div>
-          <div class="exp-badge">Current</div>
-        </div>
-        <div class="exp-item">
-          <div>
-            <div class="exp-company">Embedded AI and Edge Systems</div>
-            <div class="exp-role">Deployment timing validation and runtime observability</div>
-            <div class="exp-detail">
-              Research and development involving embedded inference systems, hardware validated timing analysis, interference aware execution, and runtime monitoring of deployed edge AI systems.
+          <div class="exp-item">
+            <div>
+              <div class="exp-company">Low-Power and Wireless Embedded Systems</div>
+              <div class="exp-role">Resource-constrained device software and connected embedded platforms</div>
+              <div class="exp-detail">
+                Experience with ultra-low-power systems, wireless communication, embedded firmware, and constrained edge architectures.
+              </div>
             </div>
           </div>
         </div>
-        <div class="exp-item">
-          <div>
-            <div class="exp-company">Low Power and Wireless Embedded Systems</div>
-            <div class="exp-role">Resource constrained device software and connected embedded platforms</div>
-            <div class="exp-detail">
-              Experience with ultra low power systems, wireless communication, embedded firmware, and constrained edge architectures.
-            </div>
+      </section>
+
+      <section id="education">
+        <p class="section-label">Education</p>
+        <div class="edu-grid">
+          <div class="edu-card">
+            <div class="edu-degree">Master of Science</div>
+            <div class="edu-field">Computer Engineering</div>
+            <div class="edu-meta">University of Massachusetts Lowell · 2017</div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-degree">Bachelor of Science</div>
+            <div class="edu-field">Electronics and Telecommunication Engineering</div>
+            <div class="edu-meta">University of Pune · 2015</div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <p class="section-label">Education</p>
-      <div class="edu-grid">
-        <div class="edu-card">
-          <div class="edu-degree">Master of Science</div>
-          <div class="edu-field">Computer Engineering</div>
-          <div class="edu-meta">University of Massachusetts Lowell · 2017</div>
+      <section>
+        <p class="section-label">Standards and Technical Focus</p>
+        <div class="cert-grid">
+          <div class="cert">IEC 62304</div>
+          <div class="cert">ISO 14971 Risk Management</div>
+          <div class="cert">Software as a Medical Device</div>
+          <div class="cert">Safety-Critical Embedded Software</div>
+          <div class="cert">Runtime Monitoring</div>
+          <div class="cert">Hardware-Referenced Timing</div>
         </div>
-        <div class="edu-card">
-          <div class="edu-degree">Bachelor of Science</div>
-          <div class="edu-field">Electronics and Telecommunication Engineering</div>
-          <div class="edu-meta">University of Pune · 2015</div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <p class="section-label">Standards and Technical Focus</p>
-      <div class="cert-grid">
-        <div class="cert">IEC 62304</div>
-        <div class="cert">ISO 14971 Risk Management</div>
-        <div class="cert">Software as a Medical Device</div>
-        <div class="cert">Safety Critical Embedded Software</div>
-        <div class="cert">Runtime Monitoring</div>
-        <div class="cert">Hardware Validated Timing</div>
-      </div>
-    </section>
+    </main>
 
-  </main>
+    <footer>
+      <p>Akul Mallayya Swami · Independent Researcher · ORCID: 0009-0003-9549-5543</p>
+    </footer>
 
-  <footer>
-    <p>Akul Mallayya Swami · Independent Researcher · ORCID: 0009-0003-9549-5543</p>
-  </footer>
-
-</div>
-
+  </div>
 </body>
 </html>
