@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Akul Mallayya Swami — independent researcher and safety-critical embedded systems engineer working on runtime assurance, timing trustworthiness, and deployment validation for edge AI systems." />
+  <meta name="description" content="Akul Mallayya Swami — independent researcher and safety-critical embedded systems engineer, author of a peer-reviewed IEEE Sensors Letters article and presenter and reviewer at IEEE SMC 2026." />
   <title>Akul Mallayya Swami | Runtime Assurance and Trustworthy Edge AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -438,6 +438,7 @@
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
+        <a href="#academic-service">Academic Service</a>
         <a href="#open-research">Open Research</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
@@ -471,10 +472,10 @@
       </div>
 
       <div class="credibility-strip" aria-label="Research profile summary">
+        <div class="credibility-item"><strong>1</strong>IEEE journal article</div>
+        <div class="credibility-item"><strong>SMC 2026</strong>WIP paper presented</div>
         <div class="credibility-item"><strong>2</strong>Industry publications</div>
-        <div class="credibility-item"><strong>4</strong>Research preprints</div>
-        <div class="credibility-item"><strong>Open</strong>Code and data artifacts</div>
-        <div class="credibility-item"><strong>IEEE</strong>Peer-review service</div>
+        <div class="credibility-item"><strong>IEEE SMC</strong>Peer-review service</div>
       </div>
     </header>
 
@@ -531,6 +532,46 @@
       <section id="publications">
         <p class="section-label">Publications</p>
 
+        <h2 class="subsection-title">Peer-Reviewed Journal Publications</h2>
+        <div class="pub-list">
+          <article class="pub featured">
+            <div class="pub-meta">
+              <span class="pub-venue">IEEE Sensors Letters · Journal Article</span>
+              <span class="pub-date">Published 2026</span>
+            </div>
+            <div class="pub-title">Wire-Level Interrupt-to-Decision Latency of On-Sensor MLC versus Host Inference on the NVIDIA Jetson Orin Nano: A Pre-Registered Measurement Study</div>
+            <div class="pub-authors"><span class="me">Akul Swami</span>, Dnyaneshwar Sonawane</div>
+            <p class="pub-summary">
+              A pre-registered, hardware-timestamped comparison of on-sensor machine learning and host inference under idle and system-contention conditions. The study examines how sensor read protocols and deployment interference affect when a decision actually reaches the host.
+            </p>
+            <div class="pub-links">
+              <a class="pub-link" href="https://ieeexplore.ieee.org/document/11738679" target="_blank" rel="noopener noreferrer">IEEE Xplore publication</a>
+              <a class="pub-link" href="https://arxiv.org/abs/2606.00524" target="_blank" rel="noopener noreferrer">Preprint version</a>
+              <a class="pub-link" href="https://github.com/akulswami/sensor-mlc-latency" target="_blank" rel="noopener noreferrer">Code and data</a>
+            </div>
+          </article>
+        </div>
+
+        <h2 class="subsection-title">Conference Papers and Presentations</h2>
+        <div class="pub-list">
+          <article class="pub featured">
+            <div class="pub-meta">
+              <span class="pub-venue">IEEE SMC 2026 · Peer-Reviewed Work-in-Progress Paper</span>
+              <span class="pub-date">Presented October 7, 2026</span>
+            </div>
+            <div class="pub-title">Per-Platform GPIO Overhead in Hardware-Validated Edge ML Inference Timing</div>
+            <div class="pub-authors"><span class="me">Akul Mallayya Swami</span>, Nikhil Chougule</div>
+            <p class="pub-summary">
+              Presented at the 2026 IEEE International Conference on Systems, Man, and Cybernetics in Bellevue, Washington. Hardware-referenced measurements on Jetson Orin Nano and Raspberry Pi 4 examine platform-dependent GPIO timing overhead and motivate platform-aware validation.
+            </p>
+            <div class="pub-links">
+              <a class="pub-link" href="https://conf.papercept.net/conferences/conferences/SMC26/program/SMC26_ContentListWeb_4.html" target="_blank" rel="noopener noreferrer">Official conference program</a>
+              <a class="pub-link" href="https://arxiv.org/abs/2605.02835" target="_blank" rel="noopener noreferrer">Preprint version</a>
+            </div>
+          </article>
+        </div>
+        <p class="note">The conference proceedings citation and IEEE Xplore link will be added when the official publication record becomes available.</p>
+
         <h2 class="subsection-title">Industry Publications</h2>
         <div class="pub-list">
           <article class="pub featured">
@@ -567,22 +608,8 @@
           </article>
         </div>
 
-        <h2 class="subsection-title">Research Manuscripts and Preprints</h2>
+        <h2 class="subsection-title">Other Research Manuscripts and Preprints</h2>
         <div class="pub-list">
-          <article class="pub">
-            <div class="pub-meta">
-              <span class="pub-venue">arXiv Preprint · Submitted to IEEE Sensors Letters</span>
-              <span class="pub-date">June 2026</span>
-            </div>
-            <div class="pub-title">Wire-Level Interrupt-to-Decision Latency of On-Sensor MLC versus Host Inference on the NVIDIA Jetson Orin Nano: A Pre-Registered Measurement Study</div>
-            <div class="pub-authors"><span class="me">Akul Mallayya Swami</span>, Dnyaneshwar Sonawane</div>
-            <div class="pub-links">
-              <a class="pub-link" href="https://arxiv.org/abs/2606.00524" target="_blank" rel="noopener noreferrer">arXiv:2606.00524</a>
-              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2606.00524" target="_blank" rel="noopener noreferrer">DOI</a>
-              <a class="pub-link" href="https://github.com/akulswami/sensor-mlc-latency" target="_blank" rel="noopener noreferrer">Code and data</a>
-            </div>
-          </article>
-
           <article class="pub">
             <div class="pub-meta">
               <span class="pub-venue">arXiv Preprint · Workshop Manuscript</span>
@@ -592,20 +619,7 @@
             <div class="pub-authors"><span class="me">Akul Mallayya Swami</span>, Nikhil Chougule</div>
             <div class="pub-links">
               <a class="pub-link" href="https://arxiv.org/abs/2605.17701" target="_blank" rel="noopener noreferrer">arXiv:2605.17701</a>
-              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2605.17701" target="_blank" rel="noopener noreferrer">DOI</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <div class="pub-meta">
-              <span class="pub-venue">arXiv Preprint · Submitted to IEEE SMC</span>
-              <span class="pub-date">May 2026</span>
-            </div>
-            <div class="pub-title">Per-Platform GPIO Overhead in Hardware-Validated Edge ML Inference Timing</div>
-            <div class="pub-authors"><span class="me">Akul Mallayya Swami</span>, Nikhil Chougule</div>
-            <div class="pub-links">
-              <a class="pub-link" href="https://arxiv.org/abs/2605.02835" target="_blank" rel="noopener noreferrer">arXiv:2605.02835</a>
-              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2605.02835" target="_blank" rel="noopener noreferrer">DOI</a>
+              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2605.17701" target="_blank" rel="noopener noreferrer">Preprint DOI</a>
             </div>
           </article>
 
@@ -618,12 +632,31 @@
             <div class="pub-authors"><span class="me">Akul Mallayya Swami</span></div>
             <div class="pub-links">
               <a class="pub-link" href="https://arxiv.org/abs/2604.23831" target="_blank" rel="noopener noreferrer">arXiv:2604.23831</a>
-              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2604.23831" target="_blank" rel="noopener noreferrer">DOI</a>
+              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2604.23831" target="_blank" rel="noopener noreferrer">Preprint DOI</a>
               <a class="pub-link" href="https://github.com/akulswami/p2-edge-ai-samd" target="_blank" rel="noopener noreferrer">Protocol</a>
             </div>
           </article>
         </div>
-        <p class="note">Submission-status labels should be updated whenever a venue issues a final decision.</p>
+        <p class="note">Preprints corresponding to the journal and conference works above are linked from those entries, so different versions of the same research are not counted as separate publications.</p>
+      </section>
+
+      <section id="academic-service">
+        <p class="section-label">Academic Service</p>
+        <div class="pub-list">
+          <article class="pub">
+            <div class="pub-meta">
+              <span class="pub-venue">IEEE SMC 2026 · Peer Review</span>
+              <span class="pub-date">2026</span>
+            </div>
+            <div class="pub-title">Conference Reviewer</div>
+            <p class="pub-summary">
+              Served as a reviewer for the 2026 IEEE International Conference on Systems, Man, and Cybernetics. The conference organizing committee acknowledged this service with an official Certificate of Appreciation.
+            </p>
+            <div class="pub-links">
+              <a class="pub-link" href="https://www.ieeesmc2026.org/" target="_blank" rel="noopener noreferrer">Conference website</a>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section id="open-research">
